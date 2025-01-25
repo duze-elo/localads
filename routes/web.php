@@ -12,6 +12,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/advertisements', function () {
+    return view('advertisements.index');
+})->middleware(['auth', 'verified'])->name('advertisements');
+
 Route::resource('advertisements', AdvertisementController::class)->middleware('auth');
 
 Route::middleware('auth')->group(function () {
