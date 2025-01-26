@@ -26,8 +26,8 @@ class AdvertisementController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
+            'title' => 'required|max:120',
+            'description' => 'required|max:360',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -55,8 +55,8 @@ class AdvertisementController extends Controller
         $this->authorize('update', $advertisement);
 
         $validated = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
+            'title' => 'required|max:120',
+            'description' => 'required|max:360',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
